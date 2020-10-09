@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+
+<h1 class="center-children">搜索结果</h1>
+
+<style type="text/css">
+.center-children {
+  text-align: center;
+}
+</style>
+
+{% block title %}搜索结果{% endblock %}
+
+{% block page_content %}
+	<table class="table table-striped">
+	<tr>
+		<th>排名</th>
+		<th>影片</th>
+		<th>评分</th>
+		<th>参评人数</th>
+		<th>概述</th>
+	</tr>
+		{% for i in result %}
+			<tr>
+				<td>{{ i[0] }}</td>
+				<td>
+				<a href="{{ i[4] }}" target="_blank">
+				{{ i[1] }}
+				</a>
+				</td>
+				<td>{{ i[5] }}</td>
+				<td>{{ i[6] }}</td>
+				<td>{{ i[7] }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+	<img width="100" src="{{ result[0][3] }}">
+	
+{% endblock %}
